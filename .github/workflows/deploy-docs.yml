@@ -2,11 +2,12 @@ name: Deploy Storybook
  
 on:
   push:
-    banches: -main
+    banches: 
+      -main
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps: 
     - name: Checkout
