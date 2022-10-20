@@ -1,6 +1,14 @@
-import {themes} from '@storybook/theming'
+import { themes } from "@storybook/theming";
 
-import '../src/styles/global.css'
+import "../src/styles/global.css";
+
+import { initialize, mswDecorator } from "msw-storybook-addon";
+
+// Initialize MSW
+initialize({ onunhandledrequest: "bypass" });
+
+// Provide the MSW addon decorator globally
+export const decorators = [mswDecorator];
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,7 +18,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  docs:{
-    theme:themes.dark
+  docs: {
+    theme: themes.dark,
   },
-}
+};
